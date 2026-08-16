@@ -1,17 +1,67 @@
 package org.JavaBankingproj;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+public class Main {
+     public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+         boolean running = true;
+         System.out.println("Welcome to Console Bank System");
+         while (running) {
+             System.out.println("""
+                     1) Open Account
+                     2) Deposit
+                     3) Withdraw
+                     4) Transfer
+                     5) Account Statement
+                     6) List Account
+                     7) Search Accounts by Customer Name
+                     0) Exit
+                     """);
+             System.out.print("CHOOSE: ");
+             String choice = scanner.nextLine().trim();
+             System.out.println("CHOICE: " + choice);
+
+             switch (choice){
+                 case "1" -> openAccount(scanner);
+                 case "2" -> deposit(scanner);
+                 case "3" -> withdraw(scanner);
+                 case "4" -> transfer(scanner);
+                 case "5" -> statements(scanner);
+                 case "6" -> listAccounts(scanner);
+                 case "7" -> searchAccounts(scanner);
+                 case "0" -> running = false;
+             }
+         }
+    }
+
+    private static void openAccount(Scanner scanner) {
+        System.out.println("Customer name: ");
+        String name = scanner.nextLine().trim();
+        System.out.println("Customer email: ");
+        String email = scanner.nextLine().trim();
+        System.out.println("Account Type (SAVINGS/CURRENT): ");
+        String type = scanner.nextLine().trim();
+        System.out.println("Initial deposit (optional, blank for 0): ");
+        String amountStr = scanner.nextLine().trim();
+        Double initial = Double.valueOf(amountStr);
+    }
+
+    private static void deposit(Scanner scanner) {
+    }
+
+    private static void withdraw(Scanner scanner) {
+    }
+
+    private static void transfer(Scanner scanner) {
+    }
+
+    private static void statements(Scanner scanner) {
+    }
+
+    private static void listAccounts(Scanner scanner) {
+    }
+
+    private static void searchAccounts(Scanner scanner) {
     }
 }
